@@ -16,7 +16,7 @@ export async function GET() {
       file: `/epubs/${filename}`
     }));
     return NextResponse.json({ books });
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: "读取图书列表失败" }, { status: 500 });
   }
 }

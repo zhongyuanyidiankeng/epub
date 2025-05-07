@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export interface BookInfo {
   id: string;
@@ -22,7 +23,7 @@ export default function EpubBookList({ books, onRead }: EpubBookListProps) {
         <li key={book.id} className="border rounded p-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             {book.coverUrl && (
-              <img src={book.coverUrl} alt={book.title} className="w-12 h-16 object-cover rounded shadow" />
+              <Image src={book.coverUrl} alt={book.title} width={48} height={64} className="object-cover rounded shadow" />
             )}
             <div>
               <div className="font-semibold">{book.title}</div>

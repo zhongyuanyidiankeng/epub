@@ -7,7 +7,7 @@ export default function UploadPage() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  const handleUpload = async (file: File) => {
+  const handleUpload = async (_file: File) => {
     setUploading(true);
     setSuccess(false);
     setError("");
@@ -15,7 +15,7 @@ export default function UploadPage() {
       // 模拟上传，后续可对接后端API或本地存储
       await new Promise((res) => setTimeout(res, 1000));
       setSuccess(true);
-    } catch (e) {
+    } catch {
       setError("上传失败，请重试");
     } finally {
       setUploading(false);

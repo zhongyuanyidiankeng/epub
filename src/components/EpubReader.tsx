@@ -212,7 +212,7 @@ export default function EpubReader({ fileUrl, showPinyin = false }: EpubReaderPr
                                 </button>
                                 {item.subitems && item.subitems.length > 0 && (
                                     <ul className="ml-4">
-                                        {item.subitems.map((sub: any) => (
+                                        {item.subitems.map((sub: NavItem) => (
                                             <li key={sub.id}>
                                                 <button
                                                     className="text-left w-full hover:bg-blue-100 px-2 py-1 rounded"
