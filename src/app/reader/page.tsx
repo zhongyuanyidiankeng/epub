@@ -1,14 +1,17 @@
 "use client";
 import EpubReader from "@/components/EpubReader";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function ReaderPage() {
+function ReaderContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id") || "";
-  const [showPinyin, setShowPinyin] = useState(false);
-  // 模拟文件url，后续可根据id获取实际文件
   const fileUrl = id ? `/epubs/${id}.epub` : "";
+  return <EpubReader fileUrl={fileUrl} showPinyin={false} />;
+}
+
+export default function ReaderPage() {
+  const [showPinyin, setShowPinyin] = useState(false);
 
   return (
     <main className="p-0 w-full h-screen bg-gray-50">
@@ -22,7 +25,9 @@ export default function ReaderPage() {
         </button>
       </div>
       <div className="w-full h-[calc(100vh-48px)]">
-        <EpubReader fileUrl={fileUrl} showPinyin={showPinyin} />
+        <Suspense fallback={<div className="flex items-center justify-center h-full">加载中...</div>}>
+          <ReaderContent />
+        </Suspense>
       </div>
     </main>
   );
