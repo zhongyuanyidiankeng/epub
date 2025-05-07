@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/**
+ * Hide scrollbar for Chrome, Safari and Opera
+ */
+iframe::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
