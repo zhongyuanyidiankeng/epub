@@ -8,6 +8,7 @@ export default function UploadPage() {
   const [error, setError] = useState("");
 
   const handleUpload = async (_file: File) => {
+    console.log(_file.name);
     setUploading(true);
     setSuccess(false);
     setError("");
