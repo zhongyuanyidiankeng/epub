@@ -18,10 +18,6 @@ export default function Home() {
             <Image src="/window.svg" alt="图书馆" width={40} height={40} />
             <span className="mt-3 font-semibold">进入图书馆</span>
           </Link>
-          <Link href="/reader" className="rounded-lg shadow-md bg-white dark:bg-[#23232a] p-6 flex flex-col items-center hover:scale-105 transition-transform border border-gray-200 dark:border-gray-700">
-            <Image src="/globe.svg" alt="最近阅读" width={40} height={40} />
-            <span className="mt-3 font-semibold">最近阅读</span>
-          </Link>
         </div>
         <section className="mt-8 text-center text-gray-500 dark:text-gray-400">
           <p>欢迎使用 EPUB 图书馆！在这里你可以上传 EPUB 电子书、浏览你的图书馆并随时阅读。</p>
