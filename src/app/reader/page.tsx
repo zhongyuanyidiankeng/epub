@@ -3,11 +3,11 @@ import EpubReader from "@/components/EpubReader";
 import { useSearchParams } from "next/navigation";
 import { useState, Suspense } from "react";
 
-function ReaderContent() {
+function ReaderContent({ showPinyin }: { showPinyin: boolean }) {
   const searchParams = useSearchParams();
   const id = searchParams.get("id") || "";
   const fileUrl = id ? `/epubs/${id}.epub` : "";
-  return <EpubReader fileUrl={fileUrl} showPinyin={false} />;
+  return <EpubReader fileUrl={fileUrl} showPinyin={showPinyin} />;
 }
 
 export default function ReaderPage() {
@@ -26,7 +26,7 @@ export default function ReaderPage() {
       </div>
       <div className="w-full h-[calc(100vh-48px)]">
         <Suspense fallback={<div className="flex items-center justify-center h-full">加载中...</div>}>
-          <ReaderContent />
+          <ReaderContent showPinyin={showPinyin} />
         </Suspense>
       </div>
     </main>
